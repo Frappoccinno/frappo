@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#savings">Savings</a></li>
+                <li><a href="#history">Transaction History</a></li>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <h1>WELCOME TO <span style="color: white;">FORTUNATE WANDERER JEWELRY</span></h1>
+            <p>Track your savings and stay on top of your finances</p>
+        </section>
+        <div class="container">
+            <div class="profile-pic">
+                <div class="profile-frame" aria-hidden="true">
+                    <img src="kermit.jpg" alt="Profile Picture">
+                </div>
+                <p style="color: black; background-color: lime;">Hi, Ryan Paevey & Claire Mandala</p>
+            </div>
+        </div>
+        <section id="savings" class="savings">
+            <div class="balance">
+                <p><u>Available Balance</u></p>
+                <h2>$<span id="total-savings">31,272.00</span></h2>
+                <p1>Interest rate: + 20% per deposit</p1>
+                <h4>Total Deposit: $<span id="total-roi">26,060.00</span></h4>
+            </div>
+            <section id="history" class="transaction-history">
+                <h2>Transaction History <span id="see-all">See all</span></h2>
+                <ul id="transactions">
+                    <!-- Add more transactions here -->
+                </ul>
+            </section>
+            <div class="savings-chart">
+                <h3>2024 Savings</h3> 
+                <canvas id="savings-chart-2024"></canvas>   
+            </div>
+            <div class="savings-chart">
+                <h3>2025 Savings</h3>
+                <canvas id="savings-chart-2025"></canvas>    
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>Fortunate Wanderer Jewelry</h4>
+                <p class="footer-tagline">Crafted for lasting value — helping you save with style.</p>
+            </div>
+            <div class="footer-right">
+                <p>Contact: <a href="mailto:info@fortunatewanderer.com">info@fortunatewanderer.com</a></p>
+                <p><a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Support</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Fortunate Wanderer. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize savings chart
+        const ctx2024 = document.getElementById('savings-chart-2024').getContext('2d');
+        const chart2024 = new Chart(ctx2024, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                datasets: [{
+                    label: 'Savings',
+                    data: [0, 0, 0, 0, 0, 0, 0, 1100, 1200, 2500, 800, 1100],
+                    backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        const ctx2025 = document.getElementById('savings-chart-2025').getContext('2d');
+        const chart2025 = new Chart(ctx2025, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                datasets: [{
+                    label: 'Savings',
+                    data: [9560, 0, 2500, 0, 600, 0, 0, 4200, 0, 2500, 0, 0],
+                    backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });    
+    </script>
+    <script>
+        const transactions = [
+            { date: '08-21-2024', amount: '+$1,100', description: 'Deposit from Ryan Paevey' },
+            { date: '09-14-2024', amount: '+$1,200', description: 'Deposit from Ryan Paevey' },
+            { date: '10-06-2024', amount: '+$2,500', description: 'Deposit from Ryan Paevey' },
+            { date: '11-29-2024', amount: '+$800', description: 'Deposit from Ryan Paevey' },
+            { date: '12-18-2024', amount: '+$1,100', description: 'Deposit from Ryan Paevey' },
+            { date: '01-20-2025', amount: '+$9,560', description: 'Deposit from Ryan Paevey' },
+            { date: '03-16-2025', amount: '+$2,500', description: 'Deposit from Ryan Paevey' },
+            { date: '05-22-2025', amount: '+$600', description: 'Deposit from Ryan Paevey' },
+            { date: '07-10-2025', amount: '+$4,200', description: 'Deposit from Ryan Paevey' },
+            { date: '24-10-2025', amount: '+$2,500', description: 'Deposit from Ryan Paevey' }
+        ];
+        
+        const transactionList = document.getElementById('transactions');
+        const seeAllButton = document.getElementById('see-all');
+        
+        let showAll = false;
+        
+        function renderTransactions() {
+            transactionList.innerHTML = '';
+            const transactionsToDisplay = showAll ? transactions : transactions.slice(-3);
+            transactionsToDisplay.forEach((transaction) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'transaction-item';
+
+                // Left column: description above date
+                const left = document.createElement('div');
+                left.className = 'transaction-left';
+
+                const descEl = document.createElement('div');
+                descEl.className = 'transaction-description';
+                descEl.textContent = transaction.description || '';
+
+                const dateElement = document.createElement('div');
+                dateElement.className = 'transaction-date';
+                dateElement.textContent = transaction.date;
+
+                left.appendChild(descEl);
+                left.appendChild(dateElement);
+
+                // Right column: amount
+                const right = document.createElement('div');
+                right.className = 'transaction-right';
+                const amountElement = document.createElement('div');
+                amountElement.className = 'amount';
+                amountElement.textContent = transaction.amount;
+                right.appendChild(amountElement);
+
+                listItem.appendChild(left);
+                listItem.appendChild(right);
+                transactionList.appendChild(listItem);
+            });
+        }
+        
+        seeAllButton.addEventListener('click', () => {
+            showAll = !showAll;
+            renderTransactions();
+        });
+        
+        renderTransactions();
+    </script>
+</body>
+</html>
