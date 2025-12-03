@@ -6,16 +6,37 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific background for the login page only.
+           Mobile: mobloginbg.jpg
+           Desktop/tablet: deskloginbg.jpg
+           This overrides the global .login-body background (black) defined in style.css */
+        body.login-body {
+            background: none !important;
+            background-image: url('mobloginbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Use desk background for wider screens */
+        @media (min-width: 769px) {
+            body.login-body {
+                background-image: url('deskloginbg.jpg');
+            }
+        }
+
+        /* The form uses the site-wide .form glass styles (backdrop-filter) from style.css */
+    </style>
 </head>
 
 <body class="login-body">
     <main>
-        <section id="home" class="hero">
+        <section id="home" class="herologin">
             <h1>WELCOME TO <span style="color: white;">FORTUNATE WANDERER JEWELRY</span></h1>
             <p>Track your savings and stay on top of your finances</p>
-        </section>
-        
-        <form id="login-form" class="form">
+
+            <form id="login-form" class="form">
             <h2>Login Here</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username"><br><br>
@@ -23,7 +44,17 @@
             <input type="password" id="password" name="password"><br><br>
             <button id="login-button" class="btn1">Login</button>
         </form>
+
+        <footer>
+            <div class="footer-bottom">
+                <small>&copy; 2025 Fortunate Wanderer. All rights reserved.</small>
+            </div>
+        </footer>
+        </section>
+        
+        
     </main>
+
 
     <script src="login.js"></script>
 </body>

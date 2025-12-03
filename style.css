@@ -42,7 +42,7 @@ header nav a {
 }
 
 .hero {
-    background-image: radial-gradient(circle at top left, #32ff7e 0%, #000000 15%, #000000 100%);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.45)), url(mobloginbg.jpg);
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -222,19 +222,61 @@ header nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-image: url('mobloginbg.jpg');
     background-repeat: no-repeat;
+}
+
+.herologin {
+    background-image: url(mobloginbg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: lime;
+    margin-bottom: 1em;
+}
+
+.herologin h1 {
+    font-size: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+@media screen and (max-width: 769px) {
+    .herologin h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .herologin {
+        background-image: url(deskloginbg.jpg);
+    }
+}
+    
+.herologin p {
+    font-size: 16px;
+    width: 60vw;
+    text-align: center;
 }
 
 .form {
     width: 250px;
     height: 350px;
-    background: grey;
+    background-color: rgba(0, 0, 0, 0.20);
+    border: 0.6px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     padding: 20px;
     margin: 50px auto;
     color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 }
   
 .form h2{
@@ -243,7 +285,7 @@ header nav a {
     text-align: center;
     color: black;
     font-size: 22px;
-    background-color: white;
+    font-weight: 900;
     border-radius: 10px;
     margin: 2px;
     margin-bottom: 1em;
@@ -254,7 +296,7 @@ header nav a {
     width: 240px;
     height: 20px;
     background: transparent;
-    border-bottom: 1px solid lime;
+    border-bottom: 1px solid black;
     border-top: none;
     border-right: none;
     border-left: none;
