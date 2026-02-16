@@ -6,24 +6,67 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
 <body class="login-body">
     <header><h1>FORTUNATE WANDERER JEWELRY</h1></header>
-    <nav></nav>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation Links (Desktop Only) -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#signin" class="nav-link signin-link">Sign In</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- Right Side Icons -->
+            <div class="nav-icons">
+                <button class="nav-icon search-icon" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon user-icon" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#signin" class="nav-link signin-link">Sign In</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <main>
         <section id="home" class="herologin">
-
-            <div class="form-section">
+            <!-- Hero Section with Image and Form -->
+            <div class="hero-container" id="signin">
+                <!-- Hero Image with Overlay Text -->
+                <div class="hero-image-wrapper">
+                    <img src="images/hero1.jpg" alt="Manage your finances with confidence" class="hero-image">
+                    <div class="image-overlay-text">manage your finances with confidence</div>
+                </div>
+                
+                <!-- Form Section -->
+                <div class="form-section">
                 <!-- Login Form -->
                 <form id="loginForm" class="auth-form active" data-form="login">
                     <h2>Welcome Back</h2>
                     <p class="form-subtitle">Sign in to manage your account</p>
 
                     <div class="form-group">
-                        <label for="login-email">Email Address</label>
+                        <label for="username">Username</label>
                         <div class="input-wrapper">
                             <i class="fas fa-envelope"></i>
                             <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
@@ -149,6 +192,7 @@
 
                     <p class="form-footer">Already have an account? <a href="#login" class="switch-form">Sign In</a></p>
                 </form>
+                </div>
             </div>
 
             <footer>

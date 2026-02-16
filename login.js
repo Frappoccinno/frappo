@@ -1,17 +1,72 @@
-const loginForm = document.getElementById('login-form');
-const loginButton = document.getElementById('login-button');
+// ===== NAVBAR FUNCTIONALITY =====
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-loginButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// Toggle mobile menu
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
 
-// TO DO: Add your authentication logic here
-// For demonstration purposes, we'll assume a successful login
-if (username === 'Ryan' && password === '010101') {
-    window.location.href = 'content.html'; // Replace with your webpage URL 
-    } 
-    else {
-        alert('Invalid username or password');
-    }
+// Close mobile menu when a link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+    });
+});
+
+// ===== FORM SWITCHING FUNCTIONALITY =====
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+const switchForms = document.querySelectorAll('.switch-form');
+
+// Hide signup form initially
+if (signupForm) {
+    signupForm.style.display = 'none';
+}
+
+// Switch between forms
+switchForms.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetForm = e.target.getAttribute('href').substring(1);
+        
+        if (targetForm === 'signup') {
+            // Show signup, hide login
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            loginForm.classList.remove('active');
+            signupForm.classList.add('active');
+        } else if (targetForm === 'login') {
+            // Show login, hide signup
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            signupForm.classList.remove('active');
+            loginForm.classList.add('active');
+        }
+    });
+});
+
+// ===== PASSWORD VISIBILITY TOGGLE =====
+const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+
+togglePasswordBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const inputId = btn.getAttribute('data-input');
+        const inputField = document.getElementById(inputId);
+        const icon = btn.querySelector('i');
+        
+        if (inputField.type === 'password') {
+            inputField.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            inputField.type = 'password';
+            icon.classList.add('fa-eye');
+            icon.classList.remove('fa-eye-slash');
+        }
+    });
 });
