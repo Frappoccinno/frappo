@@ -66,10 +66,10 @@
                     <p class="form-subtitle">Sign in to manage your account</p>
 
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="login-username">Username</label>
                         <div class="input-wrapper">
                             <i class="fas fa-user"></i>
-                            <input type="email" id="login-email" name="email" placeholder="Enter your username" required>
+                            <input type="text" id="login-username" name="username" placeholder="Enter your username" required>
                         </div>
                         <span class="error-msg"></span>
                     </div>
@@ -96,7 +96,7 @@
 
                     <button type="submit" class="btn-primary">Sign In</button>
 
-                    <p class="form-footer">Don't have an account? <a href="#signup" class="switch-form">Sign Up</a></p>
+                    <p class="form-footer">Don't have an account? <a href="#" class="switch-form">Sign Up</a></p>
                 </form>
 
                 <!-- Signup Form -->
@@ -194,12 +194,164 @@
                 </form>
                 </div>
             </div>
+        </section>
 
-            <footer>
+        <!-- Articles Section -->
+        <section id="articles" class="articles-section">
+            <div class="articles-container">
+                <h2 class="section-title">Financial Insights</h2>
+                <div class="articles-grid">
+                    <!-- Article 1 -->
+                    <article class="article-card">
+                        <div class="article-image-wrapper">
+                            <img src="images/article1.jpg" alt="Smart Savings Strategies" class="article-image">
+                            <div class="article-overlay">
+                                <h3>Smart Savings Strategies for Your Future</h3>
+                                <p>Discover proven techniques to maximize your savings and build financial security with Fortunate Wanderer's expert guidance.</p>
+                                <button class="btn-get-started" onclick="window.location.href='#signin'">Get Started</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="article-card">
+                        <div class="article-image-wrapper">
+                            <img src="images/article2.jpg" alt="Investment Fundamentals" class="article-image">
+                            <div class="article-overlay">
+                                <h3>Investment Fundamentals: Grow Your Wealth</h3>
+                                <p>Learn how to invest wisely with safety and confidence. Our platform ensures your financial interests are protected at every step.</p>
+                                <button class="btn-get-started" onclick="window.location.href='#signin'">Get Started</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="article-card">
+                        <div class="article-image-wrapper">
+                            <img src="images/article3.jpg" alt="Financial Freedom Journey" class="article-image">
+                            <div class="article-overlay">
+                                <h3>Your Path to Financial Freedom</h3>
+                                <p>Achieve your financial goals through intelligent planning and disciplined saving. Join thousands building their wealth with Fortunate Wanderer Jewelry.</p>
+                                <button class="btn-get-started" onclick="window.location.href='#signin'">Get Started</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <h2 class="section-title">About Fortunate Wanderer</h2>
+                <div class="about-content">
+                    <p>
+                        At <strong>Fortunate Wanderer Jewelry</strong>, we believe that financial freedom is a journey, not a destination. Our mission is to empower individuals with the tools, knowledge, and confidence to manage their finances wisely and securely.
+                    </p>
+                    <p>
+                        We understand that <strong>savings</strong> is the foundation of financial stability. Our platform provides a safe, secure environment where you can track, manage, and grow your finances with ease. With cutting-edge technology and a user-centric approach, we prioritize your <strong>safety</strong> and financial <strong>interest</strong> above all else.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-lock"></i>
+                            <h4>Complete Safety</h4>
+                            <p>Bank-level security for all your financial data</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h4>Smart Savings</h4>
+                            <p>Automated tools to help you save effortlessly</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Growth Insights</h4>
+                            <p>Track your financial progress every step of the way</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="testimonials-container">
+                <h2 class="section-title">Success Stories from Our Community</h2>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Fortunate Wanderer transformed my approach to finances. Within just six months, I managed to save $5,000 and understand my investments better. The platform's safety features give me peace of mind every single day."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Financial Goal Achiever</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "I was struggling to manage my finances until I discovered Fortunate Wanderer. The savings tools and investment guidance helped me become truly financially free. I now have complete control over my financial future."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4>James Rodriguez</h4>
+                            <p>Financially Independent</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The interest-tracking features and safety protocols at Fortunate Wanderer are unmatched. I've grown my savings significantly while maintaining complete security. This platform is a game-changer for anyone serious about their financial journey."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4>Emily Chen</h4>
+                            <p>Wealth Builder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-left">
+                        <h4>Fortunate Wanderer Jewelry</h4>
+                        <p class="footer-tagline">Your trusted partner in financial excellence</p>
+                    </div>
+                    <div class="footer-right">
+                        <p><strong>Quick Links</strong></p>
+                        <ul>
+                            <li><a href="#signin">Sign In</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#articles">Articles</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-follow">
+                        <p><strong>Follow Us</strong></p>
+                        <div class="social-links">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
                 <div class="footer-bottom">
-                    <small>&copy; 2025 Fortunate Wanderer. All rights reserved.</small>
+                    <small>&copy; 2025 Fortunate Wanderer. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></small>
                 </div>
             </footer>
+
         </section>
         
         

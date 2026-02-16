@@ -70,3 +70,46 @@ togglePasswordBtns.forEach(btn => {
         }
     });
 });
+
+// ===== LOGIN FORM SUBMISSION =====
+const loginFormElement = document.getElementById('loginForm');
+if (loginFormElement) {
+    loginFormElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+        
+        // Validate credentials
+        if (username === 'Ryan' && password === '010101') {
+            // Redirect to content.html
+            window.location.href = 'content.html';
+        } else {
+            // Show error message
+            alert('Invalid username or password. Please try again.');
+            // Clear password field
+            document.getElementById('login-password').value = '';
+        }
+    });
+}
+
+// ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        // Don't prevent default if it's a form switch
+        if (href !== '#signup' && href !== '#login') {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
