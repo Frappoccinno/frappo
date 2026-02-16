@@ -411,7 +411,7 @@ header h1 {
     overflow: hidden;
     width: 100%;
     aspect-ratio: 16 / 9;
-    order: 1;
+    order: 2;
 }
 
 .hero-image {
@@ -437,7 +437,7 @@ header h1 {
 .form-section {
     padding: 2em;
     color: black;
-    order: 2;
+    order: 1;
 }
 
 /* Desktop Layout - Image and Form side by side */
