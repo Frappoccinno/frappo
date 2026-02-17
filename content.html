@@ -40,6 +40,50 @@
         <div class="greeting-section">
             <p>Hi, Ryan Paevey & Claire Mandala</p>
         </div>
+
+        <!-- Carousel Section -->
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-content active">
+                    <h3>Your savings brings returns</h3>
+                    <p>plus 20% of deposit</p>
+                </div>
+                <div class="carousel-content">
+                    <h3>Your business loves smart moves</h3>
+                    <p>6% off entrepreneur and business loan</p>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+            </div>
+        </div>
+
+        <!-- Quick Action Section -->
+        <div class="quick-action-wrapper">
+            <h3>Quick actions</h3>
+            <div class="quick-action-section">
+                <a href="transfer.html" class="quick-action-item">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <p>Send Money</p>
+                </a>
+                <a href="transfer.html" class="quick-action-item">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <p>Pay Bills</p>
+                </a>
+                <div class="quick-action-item">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <p>Loan</p>
+                </div>
+            </div>
+        </div>
+
         <section id="fxrates" class="fx-rates">
             <div class="fx-rates-header">
                 <h2>FX RATES</h2>
@@ -309,4 +353,81 @@
                 navForContent.classList.remove('menu-open');
             }
         });
+
+        // ===== CAROUSEL FUNCTIONALITY =====
+        const carouselContents = document.querySelectorAll('.carousel-content');
+        const indicators = document.querySelectorAll('.indicator');
+        const carouselContainer = document.querySelector('.carousel-container');
+        
+        let currentSlide = 0;
+        let carouselInterval;
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        function showSlide(slideIndex) {
+            carouselContents.forEach((content, index) => {
+                content.classList.remove('active');
+                indicators[index].classList.remove('active');
+            });
+            
+            carouselContents[slideIndex].classList.add('active');
+            indicators[slideIndex].classList.add('active');
+            currentSlide = slideIndex;
+        }
+
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % carouselContents.length;
+            showSlide(nextIndex);
+        }
+
+        function startAutoSlide() {
+            carouselInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(carouselInterval);
+            startAutoSlide();
+        }
+
+        // Touch/swipe functionality
+        carouselContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+        }, false);
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        }, false);
+
+        carouselContainer.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const diff = startX - currentX;
+
+            if (Math.abs(diff) > 50) { // minimum swipe distance
+                if (diff > 0) {
+                    // swipe left - show next slide
+                    nextSlide();
+                } else {
+                    // swipe right - show previous slide
+                    let prevIndex = (currentSlide - 1 + carouselContents.length) % carouselContents.length;
+                    showSlide(prevIndex);
+                }
+                resetAutoSlide();
+            }
+        }, false);
+
+        // Indicator click functionality
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoSlide();
+            });
+        });
+
+        // Start auto-slide on load
+        startAutoSlide();
     </script>

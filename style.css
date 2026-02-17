@@ -1900,3 +1900,141 @@ header h1 {
         width: calc(100% - 2em);
     }
 }
+
+/* ===== CAROUSEL SECTION ===== */
+.carousel-section {
+    margin: 2em 0.5em;
+    padding: 0;
+    background: linear-gradient(to right, #727171, #393939);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.carousel-content.active {
+    opacity: 1;
+}
+
+.carousel-content h3 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.carousel-content p {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 1em;
+    background: linear-gradient(to right, #2d2d2d, #000000);
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== QUICK ACTION SECTION ===== */
+.quick-action-wrapper {
+    margin: 2em 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quick-action-wrapper h3 {
+    margin: 0 0 1.5em 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: black;
+}
+
+.quick-action-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+    padding: 0;
+}
+
+.quick-action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8em;
+    flex: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: black;
+}
+
+.quick-action-item:active {
+    transform: scale(0.95);
+}
+
+.quick-action-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3d7d5d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.quick-action-item:hover .quick-action-icon {
+    background-color: #2d6d4d;
+}
+
+.quick-action-item p {
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 500;
+}
