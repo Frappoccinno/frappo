@@ -654,8 +654,8 @@ header h1 {
 }
 
 .form-footer {
-    text-align: center;
-    color: #666;
+    text-align: left;
+    color: #bababa;
     margin: 1em 0;
 }
 
@@ -1274,7 +1274,8 @@ header h1 {
     
     .nav-links-content a:hover {
         background-color: transparent;
-        border-bottom: 2px solid limegreen;
+        color: #853838;
+        border-bottom: 2px solid #853838;
     }
 }
 
@@ -1687,4 +1688,215 @@ header h1 {
     font-size: 0.95em;
     font-weight: 400;
     color: #999;
+}
+
+/* ===== WIRE TRANSFER PAGE STYLES ===== */
+.transfer-main {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 2em;
+    width: 100%;
+}
+
+.transfer-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transfer-container h1 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: #333;
+    font-size: 1.8em;
+    text-align: left;
+}
+
+.wire-transfer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.optional {
+    font-weight: 400;
+    color: #999;
+    font-style: italic;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: limegreen;
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.1);
+}
+
+.amount-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 0.75em;
+    transition: border-color 0.3s ease;
+}
+
+.amount-input-wrapper:focus-within {
+    border-color: limegreen;
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.1);
+}
+
+.currency-symbol {
+    font-size: 1.1em;
+    color: #666;
+    margin-right: 0.5em;
+    font-weight: 600;
+}
+
+.amount-input-wrapper input {
+    flex: 1;
+    border: none;
+    padding: 0.75em 0;
+}
+
+.amount-input-wrapper input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.submit-btn {
+    padding: 0.9em;
+    background-color: limegreen;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+.submit-btn:hover {
+    background-color: #2aa02a;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.authorization-info {
+    text-align: center;
+    font-size: 0.85em;
+    color: #999;
+    margin: 0;
+    margin-top: 1em;
+    line-height: 1.4;
+}
+
+/* ===== NOTIFICATION MODAL ===== */
+.notification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification-modal.show {
+    display: flex;
+}
+
+.notification-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2em;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.notification-icon {
+    font-size: 3em;
+    color: limegreen;
+    margin-bottom: 1em;
+    animation: checkPulse 0.6s ease;
+}
+
+@keyframes checkPulse {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.notification-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .transfer-main {
+        padding: 0;
+    }
+
+    .transfer-container {
+        padding: 1.5em;
+    }
+
+    .transfer-container h1 {
+        font-size: 1.5em;
+    }
+
+    .notification-content {
+        margin: 1em;
+        width: calc(100% - 2em);
+    }
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wire Transfer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header style="padding: 0;">
+        <nav class="nav-for-content">
+            <!-- Hamburger Menu Button (Mobile Only) -->
+            <button class="hamburger-btn-content" id="hamburgerBtnContent">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation Links (Desktop and Mobile) -->
+            <ul class="nav-links-content" id="navLinksContent">
+                <li><a href="content.html">Home</a></li>
+                <li><a href="transfer.html">Transfer</a></li>
+                <li><a href="content.html#savings">Savings</a></li>
+                <li><a href="content.html#fxrates">FX Rates</a></li>
+                <li><a href="content.html#history">Transaction History</a></li>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+            
+            <!-- Profile Picture (Right Aligned) -->
+            <div class="nav-profile-pic">
+                <div class="nav-profile-frame" aria-hidden="true">
+                    <img src="kermit.jpg" alt="Profile Picture">
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="transfer-main">
+        <div class="transfer-container">
+            <h1>Wire Transfer</h1>
+            
+            <form id="wireTransferForm" class="wire-transfer-form">
+                <div class="form-group">
+                    <label for="beneficiaryName">Beneficiary Name</label>
+                    <input type="text" id="beneficiaryName" name="beneficiaryName" placeholder="Enter full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="beneficiaryAccount">Beneficiary Account Number</label>
+                    <input type="text" id="beneficiaryAccount" name="beneficiaryAccount" placeholder="Enter account number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bankName">Bank Name</label>
+                    <input type="text" id="bankName" name="bankName" placeholder="Enter bank name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="amount-input-wrapper">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="routingNumber">Routing Number <span class="optional">(optional)</span></label>
+                    <input type="text" id="routingNumber" name="routingNumber" placeholder="Enter routing number">
+                </div>
+
+                <div class="form-group">
+                    <label for="accountType">Account Type</label>
+                    <select id="accountType" name="accountType" required>
+                        <option value="">Select account type</option>
+                        <option value="savings">Savings</option>
+                        <option value="current">Current</option>
+                        <option value="credit">Credit Account</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Continue to Authorization</button>
+                
+                <p class="authorization-info">This transfer requires email verification and admin authorization</p>
+            </form>
+        </div>
+    </main>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-content">
+            <div class="notification-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <p class="notification-text">Authorization in Progress</p>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('wireTransferForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show notification modal
+            const modal = document.getElementById('notificationModal');
+            modal.classList.add('show');
+            
+            // Redirect to content.html after 2 seconds
+            setTimeout(function() {
+                window.location.href = 'content.html';
+            }, 2000);
+        });
+
+        // Handle hamburger menu toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtnContent');
+        const navLinks = document.getElementById('navLinksContent');
+
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
